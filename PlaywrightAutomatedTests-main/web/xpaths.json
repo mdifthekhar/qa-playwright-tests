@@ -1,0 +1,12 @@
+{
+    "radioButton": "//label[contains(@class, 'label--radio') and contains(text(), '{}')]",
+    "input":"//input[contains(@class, '{}')]",
+    "buttonwithclass":"//button[@class='{}']",
+    "spanwithclass[2]":"(//span[@class='{}'])[2]",
+    "textwithfollowingsibiling":"(//*[contains(text(),'{}')]/following-sibling::div)[1]",
+    "id":"//input[@id='{}']",
+    "label":"//label[@for='{}']",
+    "menu": "//a[@data-gtm-element='{}']",
+    "class": "//*[@class='{}']"
+   
+}

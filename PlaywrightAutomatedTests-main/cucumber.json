@@ -1,0 +1,30 @@
+{
+    "default": {
+        "formatOptions": {
+            "snippetInterface": "async-await"
+        },
+        "paths": [
+            "web/features",
+            "api/features"
+            
+        ],
+        "publishQuite": true,
+        "dryRun": false,
+        "require": [
+            "web/steps/*.ts",
+            "api/steps/*.ts",
+            "support/hooks/hooks.ts"
+        ],
+        "requireModule": [
+            "ts-node/register"
+        ],
+        "format": [
+            "html:test-results/cucumber-report.html",
+            "rerun:@rerun.txt"
+        ],
+        "retry": 1,
+        "parallel": 3
+    }
+        
+}
+
