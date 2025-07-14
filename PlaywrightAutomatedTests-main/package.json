@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js test || true",
-    "test:parallel": "cucumber-js --parallel 4",
-    "test:smoke": "cucumber-js test --tags @smoke",
-    "test:regression": "cucumber-js test --tags @regression",
-    "test:failed": "cucumber-js @rerun.txt"
-  },
+  "test": "cucumber-js web/features/**/*.feature --require web/features/steps/**/*.ts --require-module ts-node/register",
+  "test:parallel": "cucumber-js web/features/**/*.feature --require web/features/steps/**/*.ts --require-module ts-node/register --parallel 4",
+  "test:smoke": "cucumber-js web/features/**/*.feature --require web/features/steps/**/*.ts --require-module ts-node/register --tags @smoke",
+  "test:regression": "cucumber-js web/features/**/*.feature --require web/features/steps/**/*.ts --require-module ts-node/register --tags @regression",
+  "test:failed": "cucumber-js @rerun.txt --require web/features/steps/**/*.ts --require-module ts-node/register"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
