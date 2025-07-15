@@ -32,19 +32,22 @@ jobs:
         working-directory: PlaywrightAutomatedTests-main
         run: |
           npx cucumber-js web/features/**/*.feature \
-          --require web/features/steps/**/*.ts \
-          --require-module ts-node/register
+            --require web/features/steps/**/*.ts \
+            --require-module ts-node/register \
+            --format json:reports/json/cucumber_report.json
 
       - name: Generate HTML Report
         if: always()
         working-directory: PlaywrightAutomatedTests-main
         run: |
-          npx multiple-cucumber-html-reporter --reportPath ./reports --jsonDir ./reports/json
+          npx multiple-cucumber-html-reporter \
+            --reportPath ./reports/html \
+            --jsonDir ./reports/json
 
-      - name: Upload Report
+      - name: Upload HTML Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: test-report
-          path: PlaywrightAutomatedTests-main/reports
+          name: cucumber-html-report
+          path: PlaywrightAutomatedTests-main/reports/html
           retention-days: 14
