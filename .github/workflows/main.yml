@@ -27,7 +27,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright + Cucumber Tests
-        run: npx cucumber-js --tags "@BTISTP-T363"
+        run: npm run test
 
       - name: Generate HTML Report
         if: always()
