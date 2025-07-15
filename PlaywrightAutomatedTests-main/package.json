@@ -8,7 +8,7 @@
     "test:smoke": "cucumber-js web/features/**/*.feature --require web/features/steps/**/*.ts --require-module ts-node/register --tags @smoke --format json:reports/json/cucumber_report.json",
     "test:regression": "cucumber-js web/features/**/*.feature --require web/features/steps/**/*.ts --require-module ts-node/register --tags @regression --format json:reports/json/cucumber_report.json",
     "test:failed": "cucumber-js @rerun.txt --require web/features/steps/**/*.ts --require-module ts-node/register --format json:reports/json/cucumber_report.json",
-    "report": "npx multiple-cucumber-html-reporter --reportPath reports --jsonDir reports/json"
+    "report": "npx multiple-cucumber-html-reporter --reportPath ./reports/html --jsonDir ./reports/json"
   },
   "keywords": [],
   "author": "",
