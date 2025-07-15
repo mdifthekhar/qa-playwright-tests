@@ -21,43 +21,20 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        working-directory: PlaywrightAutomatedTests-main
         run: npm install --verbose
 
-      # Debug: List directory contents after install
-      - name: Debug - List repo contents
-        run: ls -la
-        working-directory: PlaywrightAutomatedTests-main
-
-      # Debug: List node_modules
-      - name: Debug - List node_modules contents
-        run: ls -la node_modules
-        working-directory: PlaywrightAutomatedTests-main
-
       - name: Install Playwright Browsers
-        working-directory: PlaywrightAutomatedTests-main
         run: npx playwright install --with-deps
 
       - name: Run Playwright + Cucumber Tests
-        working-directory: PlaywrightAutomatedTests-main
         run: |
           npx cucumber-js web/features/**/*.feature \
             --require web/features/steps/**/*.ts \
             --require-module ts-node/register \
             --format json:reports/json/cucumber_report.json
-
-      - name: Generate HTML Report
-        if: always()
-        working-directory: PlaywrightAutomatedTests-main
-        run: |
-          npx multiple-cucumber-html-reporter \
-            --reportPath ./reports/html \
-            --jsonDir ./reports/json
-
-      - name: Upload HTML Report
-        if: always()
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
+        if: alway()
         with:
-          name: cucumber-html-report
-          path: PlaywrightAutomatedTests-main/reports/html
-          retention-days: 14
+        name:playwright-report-ui
+        path: playwright-report/
+        retention-days:30
