@@ -22,7 +22,17 @@ jobs:
 
       - name: Install dependencies
         working-directory: PlaywrightAutomatedTests-main
-        run: npm install
+        run: npm install --verbose
+
+      # Debug: List directory contents after install
+      - name: Debug - List repo contents
+        run: ls -la
+        working-directory: PlaywrightAutomatedTests-main
+
+      # Debug: List node_modules
+      - name: Debug - List node_modules contents
+        run: ls -la node_modules
+        working-directory: PlaywrightAutomatedTests-main
 
       - name: Install Playwright Browsers
         working-directory: PlaywrightAutomatedTests-main
