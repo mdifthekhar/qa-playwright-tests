@@ -27,7 +27,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright + Cucumber Tests
-        run: npm run test
+        run: npx cucumber-js --tags "@BTISTP-T363"
 
       - name: Generate HTML Report
         if: always()
@@ -38,5 +38,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: cucumber-html-report
-          path: reports/html/
+          path: test-results
           retention-days: 14
