@@ -33,7 +33,7 @@ jobs:
             --require-module ts-node/register \
             --format json:reports/json/cucumber_report.json
       - uses: actions/upload-artifact@v4
-        if: alway()
+        if: always()
         with:
          name: playwright-report-ui
          path: playwright-report/
