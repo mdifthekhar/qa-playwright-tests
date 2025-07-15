@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
 "scripts": {
-    "test": "cucumber-js test || true",
-    "test:parallel": "cucumber-js --parallel 4",
-    "test:smoke": "cucumber-js test --tags @smoke",
-    "test:regression": "cucumber-js test --tags @regression",
-    "test:failed": "cucumber-js @rerun.txt"
-  },
+  "test": "cucumber-js test || true",
+  "test:parallel": "cucumber-js --parallel 4",
+  "test:smoke": "cucumber-js test --tags @smoke",
+  "test:regression": "cucumber-js test --tags @regression",
+  "test:failed": "cucumber-js @rerun.txt",
+  "report": "npx multiple-cucumber-html-reporter --reportPath ./test-results --jsonDir ./reports/json"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
