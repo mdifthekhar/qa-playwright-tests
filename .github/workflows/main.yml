@@ -19,6 +19,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
+      - name: Set NODE_ENV to development
+        run: echo "NODE_ENV=development" >> $GITHUB_ENV
+
 
       - name: Install dependencies
         run: npm ci # more reliable in CI than `npm install`
@@ -27,7 +30,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright + Cucumber Tests
-        run: npx cucumber-js --tags "@regression"
+        run: npm run test:regression
 
       - name: Generate HTML Report
         if: always()
@@ -38,5 +41,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: cucumber-html-report
-          path: test-results
+          path: Results
           retention-days: 14
