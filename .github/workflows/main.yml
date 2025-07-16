@@ -27,7 +27,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright + Cucumber Tests
-        run: npm run test
+        run: npx cucumber-js --tags "@regression"
 
       - name: Generate HTML Report
         if: always()
